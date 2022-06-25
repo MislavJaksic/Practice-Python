@@ -2,8 +2,6 @@
 
 import pytest
 
-from practice_python.package_two import module_two
-
 
 @pytest.fixture(scope="package")
 def package_level():
@@ -19,11 +17,3 @@ class MockAdd:  # used for mocking complex objects
     @staticmethod
     def ten():
         return 10
-
-
-@pytest.fixture
-def mock_add(monkeypatch):
-    def mock(*args, **kwargs):
-        return 10
-
-    monkeypatch.setattr(module_two, "add_two_numbers", mock)
